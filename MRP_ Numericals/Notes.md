@@ -343,3 +343,71 @@ Extra order	Subtract extra quantity from ATP
 Negative ATP	Not acceptable (means over-promise)
 
 =================================================================================================================================
+
+Great! You're now working on Projected Available Balance (PAB) and Available to Promise (ATP) calculations — two critical components of Master Production Scheduling (MPS).
+
+Let's break it down step-by-step with formulas, logic, and application for both parts of your problem
+
+✅ PAB (Projected Available Balance)
+
+🧠 Key Concepts
+
+🔹 Demand Time Fence (DTF):
+The number of weeks into the future where demand is considered firm (based on actual customer orders).
+
+In your problem: DTF = end of Week 3
+
+🔧 PAB Formulas:
+Before DTF (Weeks 1 to 3)
+
+PAB= Prior PAB (or On-Hand) + MPS − Customer Orders
+
+After DTF (Weeks 4 onward)
+
+PAB = Prior PAB + MPSM −max (Customer Orders, Forecast)
+
+
+PROBLEM : 
+
+Given the following data, calculate the projected available balance. The demand time fence is the end of week 3, the order quantity is 100, 40 are available at the beginning of the period.
+
+prior PAB=40
+MPS=100
+
+PAB=Prior Period PAB or On-Hand Balance +MPS−Customer Orders(before Demand Fence)​
+PAB=Prior Period PAB+MPS−max(Customer Orders, Forecast)(after demand Time fence)​
+ 
+Week		                        1	   2	   3	  4	     5
+Forecast		                    40	   40	   40	  40	40
+Customer Order		                39	   42	   39	  33	23
+Projected Available Balance	   40	1	   59	   20	  80	40
+MPS		                            0	   100	          100	
+
+
+
+
+Week		                              1	    2	   3	4	   5	6
+Forecast		                          75	50	  30	40	   70	20
+Customer Order		                      80	45	  40	50	   50	5
+Projected Available Balance[50]           70	25	  85	35	   85	
+ATP				                                      10		   45	
+MPS		                                  100		  100		   100	
+
+
+Step-by-Step ATP:
+Week 1: MPS = 100
+Customer Orders (Week 1 + 2) = 80 + 45 = 125
+→ ATP = 100 − 125 = −25 ❌ Not feasible → likely a mistake in the table (must revise MPS or reject some orders)
+
+But table shows ATP = 10 (assuming modified values):
+
+Let’s assume:
+
+Week 1 ATP = 10 (i.e. 100 – (80 + 10) → only 10 units left to promise)
+
+Week 3: MPS = 100
+Orders Week 3 to 4 = 40 + 50 = 90
+→ ATP = 100 − 90 = 10
+
+Table says ATP = 45 (maybe Week 3-6 cumulative order = 55 → 100 – 55)
+
