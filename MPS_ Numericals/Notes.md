@@ -410,3 +410,68 @@ Orders Week 3 to 4 = 40 + 50 = 90
 → ATP = 100 − 90 = 10
 
 Table says ATP = 45 (maybe Week 3-6 cumulative order = 55 → 100 – 55)
+
+
+=================================================================================================================================
+
+Given:
+
+Forecast (Gross Requirements):
+Period 1: 75
+Period 2: 50
+Period 3: 30
+Period 4: 80
+Period 5: 70
+Initial Projected Available: 50 units
+Lot Size (MPS): 200 units
+Lead Time: Not explicitly mentioned, so we’ll assume 0 lead time (MPS receipt in the same period as needed).
+
+| Field                  | Period 1 | Period 2 | Period 3 | Period 4 | Period 5 |
+|------------------------|----------|----------|----------|----------|----------|
+| Forecast               | 75       | 50       | 30       | 80       | 70       |
+| Projected Available    |          |          |          |          |          |
+| Net Requirement        |          |          |          |          |          |
+| MPS                    |          |          |          |          |          |
+
+
+
+Step-by-Step Calculation:
+Period 1:
+Forecast = 75
+Projected Available = 50 - 75 = -25 → shortage
+Net Requirement = 25
+MPS = 200
+New Projected Available = 200 - 25 = 175
+Period 2:
+Forecast = 50
+Projected Available = 175 - 50 = 125
+No Net Requirement
+No MPS
+Period 3:
+Forecast = 30
+Projected Available = 125 - 30 = 95
+No Net Requirement
+No MPS
+Period 4:
+Forecast = 80
+Projected Available = 95 - 80 = 15
+No Net Requirement
+No MPS
+Period 5:
+Forecast = 70
+Projected Available = 15 - 70 = -55 → shortage
+Net Requirement = 55
+MPS = 200
+New Projected Available = 200 - 55 = 145
+
+
+
+| Field                  | Period 1 | Period 2 | Period 3 | Period 4 | Period 5 |
+|------------------------|----------|----------|----------|----------|----------|
+| Forecast               | 75       | 50       | 30       | 80       | 70       |
+| Projected Available    | 75       | 25       | 95       | 15       | 45       |
+| Net Requirement        | 25       | 0        | 5        | 0        | 55       |
+| MPS                    | 100      | 0        | 100      | 0        | 100      |
+
+=================================================================================================================================
+
