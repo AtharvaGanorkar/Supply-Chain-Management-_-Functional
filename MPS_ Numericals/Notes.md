@@ -410,4 +410,3 @@ Orders Week 3 to 4 = 40 + 50 = 90
 → ATP = 100 − 90 = 10
 
 Table says ATP = 45 (maybe Week 3-6 cumulative order = 55 → 100 – 55)
-
